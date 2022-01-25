@@ -2,8 +2,8 @@ package br.com.projeto.marmitex;
 
 public class MontadorMarmitex extends Funcionario {
 
-	public MontadorMarmitex(String nome, String cpf, int qtdFilhos) {
-		super(nome, cpf, qtdFilhos);
+	public MontadorMarmitex(String nome, String cpf, String cargo, int qtdFilhos) {
+		super(nome, cpf, cargo, qtdFilhos);
 		super.salario = 1500.0;
 	}
 

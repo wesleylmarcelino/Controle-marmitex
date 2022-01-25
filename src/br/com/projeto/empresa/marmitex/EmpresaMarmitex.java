@@ -16,23 +16,32 @@ public class EmpresaMarmitex {
 		this.cnpj = cnpj;
 		this.endereco = endereco;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Empresa: " + nome + "\n" + "Funcionarios: " + "\n" + funcionarios;
+	}
+
 	public void adicinaFuncionario(Funcionario f) {
 		this.funcionarios.add(f);
 	}
-	
+
+	public void removeFuncionario(Funcionario f) {
+		this.funcionarios.remove(f);
+	}
+
 	public String getNome() {
 		return nome;
 	}
-	
+
 	public String getCnpj() {
 		return cnpj;
 	}
-	
+
 	public String getEndereco() {
 		return endereco;
 	}
-	
+
 	public List<Funcionario> getFuncionarios() {
 		return Collections.unmodifiableList(funcionarios);
 	}

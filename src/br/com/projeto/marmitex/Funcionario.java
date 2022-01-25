@@ -2,21 +2,28 @@ package br.com.projeto.marmitex;
 
 public abstract class Funcionario {
 
-	private String nome, cpf;
+	private String nome, cpf, cargo;
 	protected double salario;
 	private int qtdFilhos;
 	private static int qtdFuncionarios;
 
-	public Funcionario(String nome, String cpf, int qtdFilhos) {
+	public Funcionario(String nome, String cpf, String cargo, int qtdFilhos) {
 		if (nome == null) {
 			throw new NullPointerException("O nome não pode ser null");
 		}
 		this.nome = nome;
 		this.cpf = cpf;
+		this.cargo = cargo;
 		this.qtdFilhos = qtdFilhos;
 		Funcionario.qtdFuncionarios++;
 	}
-	
+
+	@Override
+	public String toString() {
+		String str = "Nome: " + nome + " Cargo: " + cargo + "\n";
+		return str.replaceAll(",","" ).replace("[", "").replace("]", "");
+	}
+
 	public abstract double salarioComBonificacaoQtdFilhos();
 
 	public double bonificacaoPorFilho() {
@@ -61,6 +68,10 @@ public abstract class Funcionario {
 
 	public static int getQtdFuncionarios() {
 		return Funcionario.qtdFuncionarios;
+	}
+
+	public String getCargo() {
+		return cargo;
 	}
 
 }

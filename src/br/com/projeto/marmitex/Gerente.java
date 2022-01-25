@@ -2,8 +2,8 @@ package br.com.projeto.marmitex;
 
 public class Gerente extends Funcionario {
 
-	public Gerente(String nome, String cpf, int qtdFilhos) {
-		super(nome, cpf, qtdFilhos);
+	public Gerente(String nome, String cpf, String cargo, int qtdFilhos) {
+		super(nome, cpf, cargo, qtdFilhos);
 		super.salario = 4500.0;
 	}
 	
