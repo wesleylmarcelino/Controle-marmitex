@@ -3,19 +3,32 @@ package br.com.projeto.marmitex;
 public abstract class Funcionario {
 
 	private String nome, cpf;
-	private double salario;
+	protected double salario;
 	private int qtdFilhos;
-	private static int qtdFuncionarios; 
+	private static int qtdFuncionarios;
 
-	public Funcionario(String nome, String cpf, double salario, int qtdFilhos) {
+	public Funcionario(String nome, String cpf, int qtdFilhos) {
 		if (nome == null) {
 			throw new NullPointerException("O nome não pode ser null");
 		}
 		this.nome = nome;
 		this.cpf = cpf;
-		this.salario = salario;
 		this.qtdFilhos = qtdFilhos;
 		Funcionario.qtdFuncionarios++;
+	}
+	
+	public abstract double salarioComBonificacaoQtdFilhos();
+
+	public double bonificacaoPorFilho() {
+		if (qtdFilhos == 0) {
+			return 0;
+		} else if (qtdFilhos == 1) {
+			return 50;
+		} else if (qtdFilhos == 2) {
+			return 100;
+		} else {
+			return 150;
+		}
 	}
 
 	public String getNome() {
@@ -38,10 +51,6 @@ public abstract class Funcionario {
 		return salario;
 	}
 
-	public void setSalario(double salario) {
-		this.salario = salario;
-	}
-
 	public int getQtdFilhos() {
 		return qtdFilhos;
 	}
@@ -49,7 +58,7 @@ public abstract class Funcionario {
 	public void setQtdFilhos(int qtdFilhos) {
 		this.qtdFilhos = qtdFilhos;
 	}
-	
+
 	public static int getQtdFuncionarios() {
 		return Funcionario.qtdFuncionarios;
 	}
