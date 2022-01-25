@@ -4,13 +4,12 @@ public class MontadorMarmitex extends Funcionario {
 
 	public MontadorMarmitex(String nome, String cpf, int qtdFilhos) {
 		super(nome, cpf, qtdFilhos);
-		// TODO Auto-generated constructor stub
+		super.salario = 1500.0;
 	}
 
 	@Override
 	public double salarioComBonificacaoQtdFilhos() {
-		// TODO Auto-generated method stub
-		return 0;
+		return salario + super.bonificacaoPorFilho();
 	}
 
 }
