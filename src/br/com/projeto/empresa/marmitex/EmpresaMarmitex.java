@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import br.com.projeto.empresa.marmitex.fornecedor.Fornecedor;
 import br.com.projeto.marmitex.Funcionario;
 
 public class EmpresaMarmitex {
 
 	private String nome, cnpj, endereco;
 	private List<Funcionario> funcionarios = new ArrayList<>();
+	private List<Fornecedor> fornecedores = new ArrayList<>();
 
 	public EmpresaMarmitex(String nome, String cnpj, String endereco) {
 		this.nome = nome;
@@ -19,15 +21,23 @@ public class EmpresaMarmitex {
 
 	@Override
 	public String toString() {
-		return "Empresa: " + nome + "\n" + "Funcionarios: " + "\n" + funcionarios;
+		return "Empresa: " + nome + "\n";
+	}
+	
+	public void adicionaFornecedor(Fornecedor fornecedor) {
+		this.fornecedores.add(fornecedor);
+	}
+	
+	public void removeFornecedor(Fornecedor fornecedor) {
+		this.fornecedores.remove(fornecedor);
 	}
 
-	public void adicinaFuncionario(Funcionario f) {
-		this.funcionarios.add(f);
+	public void adicinaFuncionario(Funcionario funcionario) {
+		this.funcionarios.add(funcionario);
 	}
 
-	public void removeFuncionario(Funcionario f) {
-		this.funcionarios.remove(f);
+	public void removeFuncionario(Funcionario funcionario) {
+		this.funcionarios.remove(funcionario);
 	}
 
 	public String getNome() {
@@ -44,6 +54,10 @@ public class EmpresaMarmitex {
 
 	public List<Funcionario> getFuncionarios() {
 		return Collections.unmodifiableList(funcionarios);
+	}
+	
+	public List<Fornecedor> getFornecedores() {
+		return Collections.unmodifiableList(fornecedores);
 	}
 
 }
