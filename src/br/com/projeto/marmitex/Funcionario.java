@@ -20,8 +20,7 @@ public abstract class Funcionario {
 
 	@Override
 	public String toString() {
-		String str = "Nome: " + nome + " Cargo: " + cargo + "\n";
-		return str.replaceAll(",","" ).replace("[", "").replace("]", "");
+		return "Nome: " + nome + " Cargo: " + cargo;
 	}
 
 	public abstract double salarioComBonificacaoQtdFilhos();
