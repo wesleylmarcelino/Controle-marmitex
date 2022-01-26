@@ -9,6 +9,11 @@ public class Insumo {
 		this.nome = nome;
 		this.quantidade = quantidade;
 	}
+	
+	@Override
+	public String toString() {
+		return quantidade + "Kg de " + nome ;
+	}
 
 	public String getNome() {
 		return nome;
