@@ -3,11 +3,12 @@ package br.com.projeto.marmitex.teste;
 import br.com.projeto.empresa.marmitex.EmpresaMarmitex;
 import br.com.projeto.empresa.marmitex.fornecedor.Fornecedor;
 import br.com.projeto.empresa.marmitex.insumo.Insumo;
+import br.com.projeto.empresa.marmitex.refeicao.Marmitex;
 import br.com.projeto.marmitex.Gerente;
 import br.com.projeto.marmitex.MontadorMarmitex;
 import br.com.projeto.marmitex.Nutricionista;
 
-public class TestaEmpresaMarmitex {
+public class TesteMarmitex {
 
 	public static void main(String[] args) {
 
@@ -33,27 +34,20 @@ public class TestaEmpresaMarmitex {
 		f2.adicionaInsumo(i3);
 		f2.adicionaInsumo(i4);
 
-		// System.out.println(emp.getFuncionarios().get(0).getNome());
+		Marmitex marmitex = new Marmitex(n1);
 
-		System.out.println(emp);
-		System.out.println("Fornecedores:");
-		
-		
-
-		for (int i = 0; i < emp.getFornecedores().size(); i++) {
-			System.out.println(emp.getFornecedores().get(i).getNome());
+		System.out.println("Insumos disponíveis para montar o marmitex: ");
+		for (int i = 0; i < emp.getFornecedores().size() ; i++) {
 			for (int j = 0; j < emp.getFornecedores().get(i).getInsumos().size(); j++) {
-				System.out.println(emp.getFornecedores().get(i).getInsumos().get(j));
+				System.out.println(emp.getFornecedores().get(i).getInsumos().get(j));	
 			}
-
-			System.out.println("---------------------------------------");
+			
 		}
-
-		System.out.println("Lista de Colaboradores: ");
-		emp.getFuncionarios().forEach(f -> System.out
-				.println("Colaborador: " + "\n" + f + "\n" + "-----------------------------------------------"));
-
 		
+		
+		
+		System.out.println("Nutricionista Responsável:");
+		System.out.println(marmitex.getNutricionistaResponsavel().getNome());
+
 	}
-	
 }
